@@ -26,8 +26,11 @@ Offers Page extension for Magento 2 provides a centralized and automated way to 
 - Fully responsive frontend layout
 
 ## Installation
-
-
+ ```
+ composer require ribog/module-offers
+ bin/magento module:enable Ribog_Offers
+ bin/magento setup:upgrade
+ ```
 
 ## Usage
 
