@@ -26,11 +26,13 @@ Offers Page extension for Magento 2 provides a centralized and automated way to 
 - Fully responsive frontend layout
 
 ## Installation
+For contributors, the module can be installed via Composer. If you are using a custom repository, make sure to add it to your composer.json file.
  ```
  composer require ribog/module-offers
  bin/magento module:enable Ribog_Offers
  bin/magento setup:upgrade
  ```
+For merchants, the module can be downloaded and install via our Adobe Commerce Marketplace page at https://commercemarketplace.adobe.com/ribog-module-offers.html
 
 ## Usage
 
