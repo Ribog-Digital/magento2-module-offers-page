@@ -59,7 +59,8 @@ Only rules that are active, not expired, and marked as visible will appear on th
 **Access the Offers Page**
 1. Visit the frontend URL, typically /offers, to view the list of active promotional rules. 
 2. This page automatically displays all catalog and sales rules that meet the following conditions:
-3. Visible on Offer Page = Yes, Rule is active, Date range is valid
+ 
+ Visible on Offer Page = Yes, Rule is active, Date range is valid
 
 ## Screenshots
 
