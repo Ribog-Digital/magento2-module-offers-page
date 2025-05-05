@@ -1,0 +1,75 @@
+<?php
+/* @var \Ribog\Offers\Block\Index\Index $block */
+$rules = $block->getRules();
+?>
+
+<?php if (count($rules) == 0): ?>
+    <p class="no-offers"><?= /* @noEscape */ __('No active offers at this time. Please check again later.') ?></p>
+<?php else: ?>
+    <div class="offers-container">
+        <?php foreach ($rules as $rule):?>
+            <?php if ($block->isActiveToday($rule->getFromDate(), $rule->getToDate())): ?>
+                <div class="offer-card">
+                    <div class="offer-header">
+                        <h3 class="offer-title"><?= /* @noEscape */ $rule->getName(); ?></h3>
+                        <div class="coupon-section">
+                            <?php if ($rule->getCouponType() == $block->isSpecificCouponType() && $rule->getCode()): ?>
+                                    <span class="use-code-label"><?= /* @noEscape */ __('Use Code:') ?></span>
+                                    <span class="offer-code" id="code-<?= /* @noEscape */ $rule->getId(); ?>">
+                                        <?= /* @noEscape */ $rule->getCode(); ?>
+                                    </span>
+                                    <button class="copy-btn" data-target="code-<?= /* @noEscape */ $rule->getId(); ?>">
+                                        <?= /* @noEscape */ __('Copy Code') ?>
+                                    </button>
+                            <?php else:?>
+                                <p><?= /* @noEscape */ __('No coupon code required') ?></p>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                    <div data-bind="mageInit: {
+                        'Magento_Ui/js/modal/modal':{
+                        'type': 'popup',
+                        'responsive': true,
+                        'title': 'What is the Offer',
+                        'trigger': '[data-trigger=<?= /* @noEscape */ $rule['rule_type'].'_'.$rule->getId(); ?>]',
+                        'responsive': true,buttons: []}}"
+                    >
+                        <div class="content">
+                            <ul>
+                                <li><p><?= /* @noEscape */ $rule->getDescription(); ?></p></li>
+                            <?php if ($rule->getCouponType() == $block->isSpecificCouponType() && $rule->getCode()): ?>
+                                <li><p><?= /* @noEscape */ __('Use Coupon Code %1', $rule->getCode())?></p></li>
+                            <?php else: ?>
+                                <li><p><?= /* @noEscape */ __('No coupon code required') ?></p></li>
+                            <?php endif; ?>
+                                <li><p><?= /* @noEscape */ __('Offer is valid from %1 to %2', ($rule->getFromDate() ?? date('Y-m-d')), ($rule->getToDate() ?? date('Y-m-d'))) ?></p></li>
+                            <?php if ($rule->getUsesPerCustomer() !== null && $rule->getUsesPerCustomer() > 0): ?>
+                                <li><p><?= /* @noEscape */ __('Offer is limited to %1 uses per customer', $rule->getUsesPerCustomer()) ?></p></li>
+                            <?php endif; ?>
+                            <?php if ($rule->getUsesPerCoupon() !== null && $rule->getUsesPerCoupon() > 0): ?>
+                                <li><p><?= /* @noEscape */ __('Offer is limited to %1 uses in total', $rule->getUsesPerCoupon()) ?></p></li>
+                            <?php endif; ?>
+                                <li><p><?= /* @noEscape */ __('Offer is valid for %1 customers', implode(", ", $block->getCustomerGroups($rule->getCustomerGroupIds()))) ?></p></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="offer-footer">
+                        <a class="view-offers-link" href="#"
+                           data-trigger="<?= /* @noEscape */ $rule['rule_type'].'_'.$rule->getId(); ?>">
+                            <?= /* @noEscape */ __('View Offers') ?>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        ".offers-container": {
+            "offers": {}
+        }
+    }
+</script>
+
+

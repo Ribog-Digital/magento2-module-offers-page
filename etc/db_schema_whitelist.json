@@ -1,0 +1,12 @@
+{
+    "salesrule": {
+        "column": {
+            "visible_on_offer_page": true
+        }
+    },
+    "catalogrule": {
+        "column": {
+            "visible_on_offer_page": true
+        }
+    }
+}
