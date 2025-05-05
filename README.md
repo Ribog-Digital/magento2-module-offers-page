@@ -64,8 +64,11 @@ Only rules that are active, not expired, and marked as visible will appear on th
 
 ## Screenshots
 
+**Backend Configuration**
 ![Backend Configuration](docs/offers_back_page.png)
+**Frontend offers page**
 ![Frontend Page](docs/offers_front_page.png)
+**Frontend Page with offer popup**
 ![Frontend Page with offer popup](docs/offers_popup_front_page.png)
 
 
