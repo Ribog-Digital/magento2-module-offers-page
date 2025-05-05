@@ -42,20 +42,24 @@ For merchants, the module can be downloaded and install via our Adobe Commerce M
 4. Include Promotions: Specifies which promotions to display. This field appears only when the
    module is enabled.
 
-Catalog Price Rules
+**Catalog Price Rules**
 1. Go to Marketing > Promotions > Catalog Price Rules.
 2. Add a new rule or edit an existing one.
 3. Set the field Visible on Offer Page to Yes.
 4. Make sure the rule is Active and has valid From and To dates.
 
-Cart Price Rules (Sales Rules)
+**Cart Price Rules (Sales Rules)**
 1. Go to Marketing > Promotions > Cart Price Rules.
 2. Add a new rule or edit an existing one.
 3. Set Visible on Offer Page to Yes.
 4. Confirm the rule is Active and the date range is valid.
 
+Only rules that are active, not expired, and marked as visible will appear on the Offers Page.
 
-   Only rules that are active, not expired, and marked as visible will appear on the Offers Page.
+**Access the Offers Page**
+1. Visit the frontend URL, typically /offers, to view the list of active promotional rules. 
+2. This page automatically displays all catalog and sales rules that meet the following conditions:
+3. Visible on Offer Page = Yes, Rule is active, Date range is valid
 
 ## Screenshots
 
